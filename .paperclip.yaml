@@ -1,0 +1,23 @@
+schema: paperclip/v1
+# Per-agent heartbeats tuned to the operational rhythm of each role.
+# All agents inherit adapterType: hermes_local + model: auto from AGENTS.md
+# frontmatter; the Paperclip Space writes ~/.hermes/config.yaml at boot so
+# every agent automatically routes to the gateway → qwen3:32b on the L40S.
+agents:
+  gm:                    { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  dor:                   { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  front-office-mgr:      { heartbeat: { intervalSeconds: 900 } }    # 15 min — guest-facing
+  reservations-mgr:      { heartbeat: { intervalSeconds: 1800 } }   # 30 min
+  concierge:             { heartbeat: { intervalSeconds: 900 } }    # 15 min — guest-facing
+  executive-housekeeper: { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  housekeeping-sup:      { heartbeat: { intervalSeconds: 1800 } }   # 30 min — rooms-board cadence
+  dfb:                   { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  exec-chef:             { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  restaurant-mgr:        { heartbeat: { intervalSeconds: 1800 } }   # 30 min — service cadence
+  dosm:                  { heartbeat: { intervalSeconds: 7200 } }   # 2 h
+  revenue-mgr:           { heartbeat: { intervalSeconds: 3600 } }   # hourly — pricing pulse
+  dof:                   { heartbeat: { intervalSeconds: 86400 } }  # daily
+  hr-director:           { heartbeat: { intervalSeconds: 86400 } }  # daily
+  chief-engineer:        { heartbeat: { intervalSeconds: 3600 } }   # hourly — maintenance pulse
+  security-mgr:          { heartbeat: { intervalSeconds: 3600 } }   # hourly
+  spa-mgr:               { heartbeat: { intervalSeconds: 7200 } }   # 2 h
